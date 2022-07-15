@@ -152,18 +152,18 @@ function addEmployee (){
                 message:"Who is the new employee\'s manager?"
             }
         ])
-        .then((?){
-            const query ="INSERT INTO employee SET?";
-            db.query(query, function(err,response)(
-                first_name:response.firstName,
-                last_name:response.lastName, 
-                position_id:response.position,
-                manager_id:response.manager,
-            ),
-            (err,res) => {
-                startMenu();
-            }
+        // .then((?)=> {
+        //     const query = "INSERT INTO employee SET?";
+        //     db.query(query, function(err,res){
+        //         first_name:response.firstName,
+        //         last_name:response.lastName, 
+        //         position_id:response.position,
+        //         manager_id:response.manager,
+        //     ),
+        //     (err,res) => {
+        //         startMenu();
+        //     }
 
-        )})
-    })
-}
+        // )}
+        // )}
+        // }}
