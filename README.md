@@ -1,14 +1,14 @@
 # employeetracker
 
-# Project Description 
+## Project Description 
 
-# User Story 
+## User Story 
 
-# Acceptance Criteria 
+## Acceptance Criteria 
 
-# Installation 
+## Installation 
 
-# Links 
+## Links 
 
 [Repo]()
 [Walkthrough Video]()
