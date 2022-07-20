@@ -1,5 +1,5 @@
 const express = require('express');
-const db =require('.db/connection');
+const db =require('./db/connection');
 const inquirer = require('inquirer');
 const cT = require('console.table');
 // const routes = require('./routes');
@@ -52,7 +52,7 @@ function startMenu() {
                 break;
 
             case "View Departments":
-                viewDeparments();
+                viewDepts();
                 break;
 
             case "Add Employee":
@@ -124,17 +124,17 @@ function addEmployee (){
             {
                 type:'input',
                 name:'firstName',
-                messaage:'What is the employee\'s first name?'
+                message:'What is the employee\'s first name?'
             },
             {
                 type:'input',
                 name:'lastName',
-                messaage:'What is the employee\'s last name?'
+                message:'What is the employee\'s last name?'
             },
             {
                 type:'list',
                 name:'position',
-                messaage:'What\'s the employee\'s position title? ',
+                message:'What\'s the employee\'s position title? ',
                 choices:[
                     "Singer",
                     "Performer",
@@ -148,22 +148,48 @@ function addEmployee (){
             {
                 //need to double check on input since the manager column takes integers
                 type:"input",
-                name:"manager"
+                name:"manager",
                 message:"Who is the new employee\'s manager?"
             }
         ])
-        // .then((?)=> {
-        //     const query = "INSERT INTO employee SET?";
-        //     db.query(query, function(err,res){
-        //         first_name:response.firstName,
-        //         last_name:response.lastName, 
-        //         position_id:response.position,
-        //         manager_id:response.manager,
-        //     ),
-        //     (err,res) => {
-        //         startMenu();
-        //     }
+        then(function(res){
+        const query = "INSERT INTO employee SET ?";
+        db.query(query, function(err,res){
+            if(err) return err;
+            console.table(res);
+            startMenu();
+        });
+    })
+    })
+};
 
-        // )}
-        // )}
-        // }}
+//add Positions 
+
+function addPosition (){
+
+};
+
+// addDept
+
+function addDepartment(){
+    const query = "SELECT * FROM deaprtment";
+    db.query(query, function(err,res){
+        inquirer.prompt([
+            {
+                type:'list',
+                name:'department',
+                message:'What deaprtment is the employee in?'
+            }
+
+        ])
+        then(function(res){
+            const query = "INSERT INTO department SET ?";
+            db.query(query, function(err,res){
+                if(err) return err;
+                console.table(res);
+                startMenu();
+            });
+        
+        }
+    )}
+)};

@@ -35,10 +35,14 @@ THEN I am prompted to select an employee to update and their new role and this i
 
 After installing Node and MySQL, use the command npm start or node server.js to get started.
 
+## Issues 
+
+Node on my end is not working properly with my inquirer module.
+
 ## Links 
 
 [Repo](https://github.com/anjulituck/employeetracker)
-[Walkthrough Video]()
+[Walkthrough Video](https://www.loom.com/share/129cde8ebb2740b5a21d3128cab14598)
 
 ## Tests 
 
